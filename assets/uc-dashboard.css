@@ -1,0 +1,472 @@
+/* Базовые контейнеры Dashboard-интерфейса Учебного Центра */
+.uc-dashboard {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+/* Левое боковое меню */
+.uc-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-sm);
+}
+
+.sidebar-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.sidebar-menu-btn i {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.sidebar-menu-btn:hover {
+    color: var(--text-primary);
+    background: var(--card-hover);
+    border-color: var(--border-light);
+}
+
+.sidebar-menu-btn.active {
+    color: var(--text-primary);
+    background: rgba(46, 125, 94, 0.24);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(46, 125, 94, 0.15);
+}
+
+.sidebar-menu-btn.active i {
+    color: var(--accent-glow);
+    transform: scale(1.1);
+}
+
+/* Контентная область */
+.uc-content {
+    min-height: 600px;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeInUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* База знаний: сетка карточек уставов */
+.laws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.law-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px;
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    background: rgba(25, 35, 28, 0.45);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+body.light .law-card {
+    background: rgba(255, 255, 245, 0.65);
+}
+
+.law-card:hover {
+    border-color: var(--accent);
+    background: var(--card-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.law-info {
+    margin-bottom: 16px;
+}
+
+.law-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(46, 125, 94, 0.15);
+    color: var(--accent-glow);
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+}
+
+.law-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.law-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.law-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Информационные блоки системы повышения */
+.info-block {
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    background: rgba(10, 16, 12, 0.2);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+body.light .info-block {
+    background: rgba(255, 255, 245, 0.4);
+}
+
+.info-block h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-block h3 i {
+    color: var(--accent-glow);
+}
+
+.rules-list, .scores-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.rules-list li {
+    position: relative;
+    padding-left: 24px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.rules-list li::before {
+    content: "➔";
+    position: absolute;
+    left: 0;
+    color: var(--danger);
+}
+
+.scores-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: rgba(25, 35, 28, 0.3);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+body.light .scores-list li {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.scores-list li span {
+    font-weight: 700;
+    color: var(--accent-glow);
+    background: rgba(46, 125, 94, 0.15);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+}
+
+/* Временные шкалы / Сетка рангов */
+.ranks-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.rank-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 14px 18px;
+    background: rgba(25, 35, 28, 0.3);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    align-items: center;
+}
+
+body.light .rank-row {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.rank-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rank-label i {
+    color: var(--warning);
+    font-size: 0.8rem;
+}
+
+.rank-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Промо-карточка переаттестации (День блата) */
+.promo-card {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 24px;
+    padding: 32px;
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(46, 125, 94, 0.15), rgba(10, 16, 12, 0.4));
+    align-items: center;
+}
+
+.promo-info h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.promo-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.promo-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.promo-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(214, 180, 107, 0.15);
+    color: var(--warning);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(214, 180, 107, 0.3);
+}
+
+/* Адаптивность под планшеты и мобилки */
+/* Демо-экзамен */
+.exam-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Override access-card width constraints for side-by-side layout */
+.exam-section-grid .exam-card {
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+}
+
+/* Disable hover animation for exam cards to prevent jumping */
+.exam-section-grid .exam-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.exam-card .card-body {
+    padding: 20px;
+}
+
+.exam-card .demo-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    background: rgba(46, 125, 94, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(46, 125, 94, 0.15);
+}
+
+.demo-rank-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    appearance: auto;
+}
+
+.demo-rank-select:hover {
+    border-color: var(--accent);
+}
+
+.demo-rank-select:focus {
+    outline: none;
+    border-color: var(--accent-glow);
+    box-shadow: 0 0 0 3px rgba(46, 125, 94, 0.15);
+}
+
+/* Подсветка правильных/неправильных ответов в демо-режиме */
+.demo-correct {
+    background: rgba(46, 125, 94, 0.2) !important;
+    border-color: var(--accent) !important;
+}
+
+.demo-correct span {
+    color: var(--accent-glow) !important;
+    font-weight: 700 !important;
+}
+
+.demo-correct input[type="radio"] {
+    accent-color: var(--accent);
+}
+
+.demo-wrong {
+    opacity: 0.5;
+}
+
+/* Контейнер iframe демо */
+.demo-exam-container {
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-sm);
+}
+
+.demo-exam-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.demo-exam-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.demo-exam-header h3 i {
+    color: var(--accent-glow);
+}
+
+.demo-exam-content {
+    padding: 24px;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.demo-questions-list {
+    display: grid;
+    gap: 16px;
+}
+
+.demo-questions-list .question-card {
+    margin-bottom: 0;
+}
+
+/* Адаптив */
+@media (max-width: 960px) {
+    .exam-section-grid {
+        grid-template-columns: 1fr;
+    }
+    .demo-exam-content {
+        max-height: 600px;
+    }
+}
+
+@media (max-width: 960px) {
+    .uc-dashboard {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .uc-sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 12px;
+        border-radius: 20px;
+    }
+    .sidebar-menu-btn {
+        white-space: nowrap;
+        padding: 10px 14px;
+    }
+    .promo-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 20px;
+    }
+    .promo-card .submit-btn {
+        width: 100%;
+    }
+    .rank-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+}

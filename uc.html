@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ARMY Eclipse | УЧЕБНЫЙ ЦЕНТР</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Подключаем выделенные стили Дашборда -->
+    <link rel="stylesheet" href="assets/uc-dashboard.css">
+</head>
+<body>
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-content">
+            <div class="welcome-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="welcome-text">ARMY Eclipse</div>
+            <div class="welcome-sub">УЧЕБНЫЙ ЦЕНТР</div>
+        </div>
+    </div>
+
+    <div class="top-actions">
+        <a href="admin.html" class="top-btn instructor-btn" type="button">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Панель инструктора</span>
+        </a>
+        <button class="top-btn theme-toggle" id="themeSwitch" type="button">
+            <i class="fas fa-sun"></i>
+            <span>Светлая тема</span>
+        </button>
+    </div>
+
+    <main class="container">
+        <header class="header compact-header">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-gun"></i></div>
+                <h1>ARMY Eclipse</h1>
+            </div>
+            <p class="subtitle">УЧЕБНЫЙ ЦЕНТР</p>
+        </header>
+
+        <!-- Основной Dashboard интерфейс -->
+        <div class="uc-dashboard page is-visible">
+            
+            <!-- Левое навигационное меню -->
+            <aside class="uc-sidebar">
+                <button class="sidebar-menu-btn active" data-tab="knowledge">
+                    <i class="fas fa-book"></i> База знаний
+                </button>
+                <button class="sidebar-menu-btn" data-tab="upgrade">
+                    <i class="fas fa-star"></i> Система повышения
+                </button>
+                <button class="sidebar-menu-btn" data-tab="blat">
+                    <i class="fas fa-id-card"></i> Переаттестация
+                </button>
+                <button class="sidebar-menu-btn" data-tab="exam">
+                    <i class="fas fa-key"></i> Тестирование
+                </button>
+            </aside>
+
+            <!-- Контентные вкладки -->
+            <div class="uc-content">
+
+                <!-- Вкладка 1: База знаний (Уставы) -->
+                <section class="tab-panel active" id="tab-knowledge">
+                    <div class="laws-grid">
+                        <a href="https://forum.gta5rp.com/threads/national-guard-ustav-karaulnoi-sluzhby.3367016/#post-9681155" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-shield-alt"></i></div>
+                                <h4>Устав караульной службы</h4>
+                                <p>Правила охраны Форта Занкудо, КПП и несения внутренней службы.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/national-guard-ustav-nacionalnoi-gvardii.3367005/#post-9681031" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-gavel"></i></div>
+                                <h4>Устав Национальной Гвардии</h4>
+                                <p>Основной регламентирующий документ, обязанности и права военнослужащих.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/ustav-stroevoi-podgotovki.3405562/#post-9966396" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-person-military-pointing"></i></div>
+                                <h4>Устав строевой подготовки</h4>
+                                <p>Порядок выполнения строевых приемов, построения и субординация.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/processualnyi-kodeks-red-ot-08-06-2026.360456/#post-1035662" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-scale-balanced"></i></div>
+                                <h4>Процессуальный кодекс</h4>
+                                <p>Порядок проведения задержаний, обысков и следственных действий.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/ugolovnyi-kodeks-red-ot-23-05-2026.360457/#post-1035663" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-handcuffs"></i></div>
+                                <h4>Уголовный кодекс</h4>
+                                <p>Классификация правонарушений и виды уголовной ответственности.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/zakon-o-zakrytyx-i-oxranjaemyx-territorijax-red-ot-10-01-2026.360431/#post-1035604" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-door-closed"></i></div>
+                                <h4>Закон о ЗОТ</h4>
+                                <p>Регламент нахождения гражданских лиц на охраняемых территориях штата.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/zakon-o-national-guard-red-ot-26-06-2026.360407/#post-1035550" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-building-shield"></i></div>
+                                <h4>Закон о National Guard</h4>
+                                <p>Правовая основа, юрисдикция и рамки применения силы бойцами NG.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/konstitucija-shtata-san-andreas.360458/#post-1035665" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-scroll"></i></div>
+                                <h4>Конституция штата</h4>
+                                <p>Высший нормативный правовой акт, права граждан и государственная иерархия.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/zakon-o-gosudarstvennoi-taine-red-ot-18-08-2024.360423/#post-1035576" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-user-secret"></i></div>
+                                <h4>Закон о Государственной тайне</h4>
+                                <p>Регламент работы с засекреченной информацией и степени секретности.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+
+                        <a href="https://forum.gta5rp.com/threads/zakon-o-neprikosnovennosti-dolzhnostnyx-lic-red-ot-27-01-2025.360436/#post-1035619" target="_blank" class="law-card">
+                            <div class="law-info">
+                                <div class="law-icon"><i class="fas fa-user-tie"></i></div>
+                                <h4>Закон о неприкосновенности</h4>
+                                <p>Перечень и статус неприкосновенных лиц, рамки их преследования.</p>
+                            </div>
+                            <div class="law-action">Открыть форум <i class="fas fa-external-link-alt"></i></div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Вкладка 2: Система повышения -->
+                <section class="tab-panel" id="tab-upgrade">
+                    <div class="info-block">
+                        <h3><i class="fas fa-clipboard-list"></i> Правила подачи отчетов</h3>
+                        <ul class="rules-list">
+                            <li>Принимаются исключительно новые скриншоты, сделанные с момента вашего последнего повышения.</li>
+                            <li>Категорически запрещено подавать отчет на рассмотрение более одного раза в течение одних суток.</li>
+                            <li>Все прикрепляемые скриншоты должны быть исходного качества (красивые, четкие и не обрезанные).</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h3><i class="fas fa-star-half-stroke"></i> Таблица начисления баллов</h3>
+                        <ul class="scores-list">
+                            <li>Дежурство на посту (за каждые 60 минут) <span>10 баллов</span></li>
+                            <li>Участие в проверке со стороны Прокуратуры <span>10 баллов</span></li>
+                            <li>Участие в Глобальном Мероприятии (ГМП) <span>10 баллов</span></li>
+                            <li>Успешное отражение нападения на Форт Занкудо <span>10 баллов</span></li>
+                            <li>Захват черного рынка <span>7 баллов</span></li>
+                            <li>Тренировка уставов/кодексов (УСП, УНГ, УКС, ПК, УК, ЗОТ) — практика <span>5 баллов</span></li>
+                            <li>Проведение лекции (УСП, УНГ, УКС, ПК, УК, ЗОТ, Конституция) <span>5 баллов</span></li>
+                            <li>Участие в спец. операциях (Усиленный патруль, рейд, поезд, анальгетик) <span>5 баллов</span></li>
+                            <li>Участие в поставках (NG / EMS) или Дропе <span>5 баллов</span></li>
+                            <li>Участие в Мероприятиях (МП) или на проверке от EMS <span>5 баллов</span></li>
+                            <li>Полное проведение процессуальных действий (Задержание) <span>5 баллов</span></li>
+                            <li>Успешное отражение нападения на Федеральную Тюрьму (ФТ) <span>5 баллов</span></li>
+                            <li>Расстановка техники/бараков (требуется видеооткат) <span>5 баллов</span></li>
+                            <li>Тренировка по вождению Бараков <span>4 балла</span></li>
+                            <li>Тренировка по пилотированию, физ.подготовке или маскировке <span>3 балла</span></li>
+                            <li>Активная помощь офицерам на рекрутировании <span>3 балла</span></li>
+                            <li>Лекция по воздушной подготовке (от инструкторов USAF) <span>2 балла</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-block">
+                        <h3><i class="fas fa-sitemap"></i> Критерии повышения в подразделении DIVISION</h3>
+                        <div class="ranks-timeline">
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 3 ➔ 4 Ранг</div>
+                                <div class="rank-desc"><strong>60 баллов</strong> (включая обязательные 2 часа поста, тренировки по УКС и УСП) + успешная сдача <strong>Экзамена по УКС + УСП + УНГ + Закон о NG + тен-кодам</strong>.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 4 ➔ 5 Ранг</div>
+                                <div class="rank-desc"><strong>70 баллов</strong> (включая обязательные 3 часа поста) + сдача <strong>Экзамена по ПК + УК (Гл. 12 с 12.6, 15, 17, 18) + Закону о ЗОТ (Гл. 1, 2, 7, 12)</strong>. <br><small style="color: var(--warning)">*Прибывшие по "Дню Блата" сдают сразу программу 3 ➔ 5. КД между повышениями: 3 дня.</small></div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 5 ➔ 6 Ранг</div>
+                                <div class="rank-desc"><strong>80 баллов</strong> (включая обязательные 4 часа поста) + сдача <strong>Экзамена по Закону о гос. тайне + Закону о неприкосновенности + Конституции (Гл. 2-5: Иерархия НПА и власти)</strong>. КД: 3 дня.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 6 ➔ 7 Ранг</div>
+                                <div class="rank-desc"><strong>90 баллов</strong>, включая в себя обязательные 5 часов дежурства на посту.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 7 ➔ 8 Ранг</div>
+                                <div class="rank-desc"><strong>100 баллов</strong>, включая в себя обязательные 6 часов дежурства на посту.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 8 ➔ 9 Ранг</div>
+                                <div class="rank-desc"><strong>110 баллов</strong>, включая в себя обязательные 7 часов дежурства на посту.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 9 ➔ 10 Ранг</div>
+                                <div class="rank-desc"><strong>120 баллов</strong>, включая в себя обязательные 8 часов дежурства на посту.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 10 ➔ 11 Ранг</div>
+                                <div class="rank-desc"><strong>130 баллов</strong> (включая обязательные 9 часов поста) + сдача профильного <strong>Экзамена по УКС + УСП + УНГ</strong>.</div>
+                            </div>
+                            <div class="rank-row">
+                                <div class="rank-label"><i class="fas fa-star"></i> 11 ➔ 12 Ранг</div>
+                                <div class="rank-desc"><strong>140 баллов</strong> (включая обязательные 10 часов поста, тренировки по УКС и УСП) + Итоговый <strong>Общий экзамен</strong> по всей нормативно-правовой базе (УКС, УСП, УНГ, Закон о NG, ПК, УК, ЗОТ, Неприкосновенность, Гос. тайна, Конституция).</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Вкладка 3: Переаттестация -->
+                <section class="tab-panel" id="tab-blat">
+                    <div class="promo-card">
+                        <div class="promo-info">
+                            <h3>Реестр квалификаций</h3>
+                            <p>Система переаттестации, мониторинга знаний личного состава и ведения учета.</p>
+                            <div class="promo-badges">
+                                <div class="promo-badge"><i class="fas fa-shield-halved"></i> Защищенный протокол</div>
+                            </div>
+                        </div>
+                        <a href="https://armydb.website.yandexcloud.net/" target="_blank" class="submit-btn" type="button">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Войти в систему
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Вкладка 4: Сдача экзамена -->
+                <section class="tab-panel" id="tab-exam">
+                    <div class="exam-section-grid">
+                        <!-- Реальный экзамен (токен) -->
+                        <div class="glass-card access-card exam-card">
+                            <div class="card-header">
+                                <h2><i class="fas fa-key"></i>Экзамен</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="formAlert"></div>
+                                
+                                <div class="input-group">
+                                    <label for="examKey"><i class="fas fa-ticket-alt"></i> Токен / Ключ экзамена</label>
+                                    <textarea id="examKey" rows="5" autocomplete="off" spellcheck="false" placeholder="Вставьте сгенерированный ключ, который вы получили от проверяющего инструктора"></textarea>
+                                </div>
+                                <button class="submit-btn" id="startBtn" type="button">
+                                    <i class="fas fa-play"></i>
+                                    НАЧАТЬ ЭКЗАМЕН
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Демо-экзамен -->
+                        <div class="glass-card access-card exam-card">
+                            <div class="card-header">
+                                <h2><i class="fas fa-flask"></i> Демо-экзамен</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="demo-subtitle">Ознакомьтесь с вопросами экзамена без авторизации. Будет показано 5 вопросов с правильными ответами.</p>
+                                <div class="input-group">
+                                    <label for="demoExamSelect"><i class="fas fa-arrow-up"></i> Повышение</label>
+                                    <select id="demoExamSelect" class="demo-rank-select">
+                                        <option value="3-4">3 ➔ 4 ранг</option>
+                                        <option value="4-5">4 ➔ 5 ранг</option>
+                                        <option value="5-6">5 ➔ 6 ранг</option>
+                                        <option value="10-11">10 ➔ 11 ранг</option>
+                                        <option value="11-12">11 ➔ 12 ранг</option>
+                                    </select>
+                                </div>
+                                <button class="submit-btn" id="demoStartBtn" type="button">
+                                    <i class="fas fa-flask"></i>
+                                    ОТКРЫТЬ ДЕМО
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+        <div class="footer-signature" style="margin-top: 40px;">By Marcus_DeHaus</div>
+    </main>
+
+    <script src="assets/config.js"></script>
+    <script src="assets/utils.js"></script>
+    <script src="assets/questions.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>

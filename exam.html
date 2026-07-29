@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ARMY Eclipse | Сдача экзамена</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="no-select">
+    <div class="top-actions">
+        <a href="index.html" class="top-btn" type="button">
+            <i class="fas fa-arrow-left"></i>
+            <span>На главную</span>
+        </a>
+        <button class="top-btn theme-toggle" id="themeSwitch" type="button">
+            <i class="fas fa-sun"></i>
+            <span>Светлая тема</span>
+        </button>
+    </div>
+
+    <main class="container">
+        <header class="header compact-header">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h1>ARMY Eclipse</h1>
+            </div>
+            <p class="subtitle">СДАЧА ЭКЗАМЕНА</p>
+        </header>
+
+        <section class="exam-shell">
+            <div class="exam-topline">
+                <div>
+                    <p class="kicker">Кандидат</p>
+                    <h2 id="candidateName">-</h2>
+                </div>
+            <div class="exam-stats">
+                <span id="examLevel">-</span>
+                <span id="questionCounter">0/0</span>
+                <span id="examTimer" class="exam-timer">30:00</span>
+            </div>
+            </div>
+
+            <div id="examAlert"></div>
+            <div id="examContent"></div>
+        </section>
+    </main>
+
+    <script src="assets/config.js"></script>
+    <script src="assets/utils.js"></script>
+    <script src="assets/questions.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        // Парсим URL-параметры вручную (работает на file://)
+        function getParam(name) {
+            var match = window.location.search.match(new RegExp('[?&]' + name + '=([^&]*)'));
+            return match ? decodeURIComponent(match[1]) : null;
+        }
+        var demoExam = getParam('demo');
+        var demoFrom = getParam('from');
+        var demoTo = getParam('to');
+        if (demoExam === 'true' && demoFrom && demoTo) {
+            // Демо-режим: передаём параметры в initExam
+            window.ArmyExam.initExam({ demo: true, from: demoFrom, to: demoTo });
+        } else {
+            window.ArmyExam.initExam();
+        }
+    </script>
+</body>
+</html>

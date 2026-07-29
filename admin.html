@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ARMY Eclipse | ПАНЕЛЬ ИНСТРУКТОРА</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="top-actions">
+        <button class="top-btn theme-toggle" id="themeSwitch" type="button">
+            <i class="fas fa-sun"></i>
+            <span>Светлая тема</span>
+        </button>
+    </div>
+
+    <main class="container">
+        <header class="header compact-header">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-user-shield"></i></div>
+                <h1>ARMY Eclipse</h1>
+            </div>
+            <p class="subtitle">ПАНЕЛЬ ИНСТРУКТОРА</p>
+        </header>
+
+        <section class="admin-grid">
+            <div class="glass-card" id="loginCard">
+                <div class="card-header">
+                    <h2><i class="fas fa-lock"></i> Вход инструктора</h2>
+                </div>
+                <div class="card-body">
+                    <div id="loginAlert"></div>
+                    <div class="input-group">
+                        <label for="login"><i class="fas fa-user"></i> Логин</label>
+                        <input id="login" type="text" autocomplete="username" placeholder="Инструктор">
+                    </div>
+                    <div class="input-group">
+                        <label for="password"><i class="fas fa-key"></i> Пароль</label>
+                        <input id="password" type="password" autocomplete="current-password" placeholder="Пароль">
+                    </div>
+                    <button class="submit-btn" id="loginBtn" type="button">
+                        <i class="fas fa-right-to-bracket"></i>
+                        ВОЙТИ
+                    </button>
+                    <div class="footer-signature">By Marcus_DeHaus</div>
+                </div>
+            </div>
+
+            <div class="glass-card workspace-card is-hidden" id="workspaceCard">
+                <div class="card-header workspace-header">
+                    <h2><i class="fas fa-briefcase"></i> Рабочее место инструктора</h2>
+                    <div class="workspace-tabs" role="tablist" aria-label="Разделы инструктора">
+                        <button class="workspace-tab is-active" type="button" data-panel="lecturesPanel">
+                            <i class="fas fa-book-open"></i>
+                            Лекции
+                        </button>
+                        <button class="workspace-tab" type="button" data-panel="examPanel">
+                            <i class="fas fa-key"></i>
+                            Экзамен
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <section class="workspace-panel" id="lecturesPanel">
+                        <div class="lectures-layout">
+                            <aside class="lecture-list" id="lectureList"></aside>
+                            <article class="lecture-reader">
+                                <div id="lectureAlert"></div>
+                                <div id="lectureContent"></div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="workspace-panel is-hidden" id="examPanel">
+                        <div class="exam-generator">
+                            <div id="keyAlert"></div>
+                            <div class="double-group">
+                                <div class="input-group">
+                                    <label for="nick"><i class="fas fa-id-card"></i> Никнейм кандидата</label>
+                                    <input id="nick" type="text" placeholder="Marcus DeHaus">
+                                </div>
+                                <div class="input-group">
+                                    <label for="examType"><i class="fas fa-ranking-star"></i> Экзамен</label>
+                                    <select id="examType">
+                                        <option value="3-4">3 -> 4 ранг</option>
+                                        <option value="4-5">4 -> 5 ранг</option>
+                                        <option value="5-6">5 -> 6 ранг</option>
+                                        <option value="10-11">10 -> 11 ранг</option>
+                                        <option value="11-12">11 -> 12 ранг</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="examDate"><i class="fas fa-calendar"></i> Дата экзамена</label>
+                                <input id="examDate" type="date">
+                            </div>
+                            <button class="submit-btn" id="generateBtn" type="button">
+                                <i class="fas fa-key"></i>
+                                СГЕНЕРИРОВАТЬ КЛЮЧ
+                            </button>
+                            <div class="input-group generated-key-wrap">
+                                <label for="generatedKey"><i class="fas fa-ticket"></i> Ключ для кандидата</label>
+                                <textarea id="generatedKey" rows="6" readonly placeholder="Ключ появится здесь"></textarea>
+                            </div>
+                            <button class="secondary-btn" id="copyBtn" type="button">
+                                <i class="fas fa-copy"></i>
+                                СКОПИРОВАТЬ КЛЮЧ
+                            </button>
+                        </div>
+                    </section>
+                    <div class="footer-signature">By Marcus_DeHaus</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/config.js"></script>
+    <script src="assets/utils.js"></script>
+    <script src="assets/lectures.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        window.ArmyExam.initAdmin();
+    </script>
+</body>
+</html>
