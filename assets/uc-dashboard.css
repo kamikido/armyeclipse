@@ -470,3 +470,1131 @@ body.light .rank-row {
         gap: 6px;
     }
 }
+
+/* ===== ШПАРГАЛКИ ===== */
+.cheatsheet-section {
+    margin-top: 36px;
+}
+
+.cheatsheet-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.cheatsheet-section-title i {
+    color: var(--accent-glow);
+}
+
+.cheatsheet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.cheatsheet-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(46, 125, 94, 0.18), rgba(10, 16, 12, 0.4));
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+body.light .cheatsheet-card {
+    background: linear-gradient(135deg, rgba(46, 125, 94, 0.12), rgba(255, 255, 245, 0.5));
+}
+
+.cheatsheet-card:hover {
+    border-color: var(--accent-glow);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.cheatsheet-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cheatsheet-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(46, 125, 94, 0.2);
+    color: var(--accent-glow);
+    font-size: 1.3rem;
+}
+
+.cheatsheet-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(214, 180, 107, 0.15);
+    color: var(--warning);
+    border: 1px solid rgba(214, 180, 107, 0.3);
+    white-space: nowrap;
+}
+
+.cheatsheet-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.cheatsheet-card p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.cheatsheet-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== СТРАНИЦА ШПАРГАЛКИ (отдельные файлы) ===== */
+.cs-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cs-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cs-page-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.cs-page-header h2 i {
+    color: var(--accent-glow);
+}
+
+.cs-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid var(--border-light);
+    border-radius: 30px;
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.cs-back-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+    background: var(--card-hover);
+    box-shadow: 0 0 20px rgba(46, 125, 94, 0.15);
+}
+
+.cs-shell {
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-sm);
+    padding: 32px;
+}
+
+body.light .cs-shell {
+    background: rgba(255, 255, 248, 0.85);
+}
+
+@media (max-width: 640px) {
+    .cs-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cs-shell {
+        padding: 18px;
+        border-radius: 20px;
+    }
+}
+
+/* ===== КОНТЕНТ ШПАРГАЛОК ===== */
+.cs-section {
+    margin-bottom: 28px;
+}
+
+.cs-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--accent-glow);
+    letter-spacing: 0.02em;
+}
+
+.cs-section-title i {
+    font-size: 1rem;
+}
+
+.cs-subsection {
+    margin: 18px 0 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.cs-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.cs-note {
+    padding: 16px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    background: rgba(46, 125, 94, 0.12);
+    margin-bottom: 16px;
+}
+
+.cs-note-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-glow);
+    margin-bottom: 8px;
+}
+
+.cs-note p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.cs-warning {
+    padding: 14px 16px;
+    border: 1px solid rgba(214, 180, 107, 0.4);
+    border-radius: 14px;
+    background: rgba(214, 180, 107, 0.1);
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.cs-warning strong {
+    color: var(--warning);
+}
+
+.cs-list {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.cs-list li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.cs-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-glow);
+}
+
+.cs-list li strong {
+    color: var(--text-primary);
+}
+
+.cs-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+}
+
+.cs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.cs-table th {
+    padding: 10px 12px;
+    text-align: left;
+    background: rgba(46, 125, 94, 0.2);
+    color: var(--accent-glow);
+    font-weight: 700;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cs-table td {
+    padding: 10px 12px;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+}
+
+.cs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.cs-table td strong {
+    color: var(--text-primary);
+}
+
+.cs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.cs-grid-item {
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    background: rgba(25, 35, 28, 0.3);
+}
+
+body.light .cs-grid-item {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-grid-item h5 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.cs-grid-item h5 i {
+    color: var(--accent-glow);
+}
+
+.cs-grid-item p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.cs-highlight {
+    padding: 14px 16px;
+    border-left: 4px solid var(--warning);
+    background: rgba(214, 180, 107, 0.08);
+    border-radius: 0 14px 14px 0;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.cs-highlight strong {
+    color: var(--warning);
+}
+
+.cs-code {
+    padding: 12px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: rgba(10, 16, 12, 0.4);
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--accent-glow);
+    white-space: pre-wrap;
+    margin-bottom: 16px;
+}
+
+body.light .cs-code {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-footer {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    background: rgba(46, 125, 94, 0.08);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* ===== ИНТЕРАКТИВНЫЙ МАСТЕР ДЕРЕВА РЕШЕНИЙ ===== */
+.cs-wizard {
+    margin-bottom: 28px;
+}
+
+.cs-wizard-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding: 14px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    background: rgba(46, 125, 94, 0.14);
+}
+
+.cs-wizard-head h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--accent-glow);
+}
+
+.cs-wizard-head h4 i {
+    font-size: 1.1rem;
+}
+
+.cs-wizard-progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.cs-wizard-progress .step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-light);
+    transition: background 0.3s ease;
+}
+
+.cs-wizard-progress .step-dot.done {
+    background: var(--accent-glow);
+}
+
+.cs-wizard-progress .step-dot.current {
+    background: var(--warning);
+    box-shadow: 0 0 8px rgba(214, 180, 107, 0.6);
+}
+
+.cs-wizard-stage {
+    min-height: 120px;
+}
+
+.cs-wizard-question {
+    margin-bottom: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.cs-wizard-question i {
+    color: var(--warning);
+    margin-right: 8px;
+}
+
+.cs-wizard-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.cs-wizard-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    background: rgba(25, 35, 28, 0.45);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+body.light .cs-wizard-option {
+    background: rgba(255, 255, 245, 0.65);
+}
+
+.cs-wizard-option:hover {
+    border-color: var(--accent);
+    background: var(--card-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.cs-wizard-option i {
+    font-size: 1.2rem;
+    width: 28px;
+    text-align: center;
+    color: var(--accent-glow);
+    flex-shrink: 0;
+}
+
+/* Карточки-результаты */
+.cs-result {
+    border-radius: 18px;
+    padding: 22px;
+    animation: fadeInUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.cs-result.pass {
+    border: 1px solid var(--accent);
+    background: rgba(46, 125, 94, 0.16);
+}
+
+.cs-result.check {
+    border: 1px solid rgba(214, 180, 107, 0.5);
+    background: rgba(214, 180, 107, 0.1);
+}
+
+.cs-result.arrest {
+    border: 1px solid rgba(191, 123, 94, 0.5);
+    background: rgba(191, 123, 94, 0.12);
+}
+
+.cs-result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.cs-result.pass .cs-result-badge {
+    background: rgba(46, 125, 94, 0.25);
+    color: var(--accent-glow);
+}
+
+.cs-result.check .cs-result-badge {
+    background: rgba(214, 180, 107, 0.2);
+    color: var(--warning);
+}
+
+.cs-result.arrest .cs-result-badge {
+    background: rgba(191, 123, 94, 0.2);
+    color: #e0a58a;
+}
+
+.cs-result-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.cs-result-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.cs-result-actions {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    background: rgba(10, 16, 12, 0.3);
+}
+
+body.light .cs-result-actions {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-result-actions-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-glow);
+}
+
+.cs-result-actions-list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.cs-result-actions-list li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.cs-result-actions-list li::marker {
+    color: var(--accent-glow);
+    font-weight: 700;
+}
+
+.cs-result-articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.cs-result-article {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: rgba(25, 35, 28, 0.4);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+}
+
+body.light .cs-result-article {
+    background: rgba(255, 255, 245, 0.6);
+}
+
+.cs-wizard-restart {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 12px 22px;
+    border: 1px solid var(--border-light);
+    border-radius: 30px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+
+.cs-wizard-restart:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+    background: var(--card-hover);
+}
+
+/* Вертикальная схема-памятка */
+.cs-flow {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.cs-flow-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    background: rgba(25, 35, 28, 0.3);
+}
+
+body.light .cs-flow-item {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-flow-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(46, 125, 94, 0.18);
+    color: var(--accent-glow);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.cs-flow-text {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+.cs-flow-text strong {
+    color: var(--text-primary);
+}
+
+.cs-flow-arrow {
+    text-align: center;
+    color: var(--accent-glow);
+    font-size: 1rem;
+    margin: -2px 0;
+}
+
+@media (max-width: 640px) {
+    .cs-wizard-options {
+        grid-template-columns: 1fr;
+    }
+    .cs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== АНИМАЦИЯ ДЛЯ ПОПАПОВ ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== ПОПАПЫ (всплывающие окна) ===== */
+.cs-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cs-popup-overlay.open {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.cs-popup {
+    width: 100%;
+    max-width: 520px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    padding: 24px;
+    animation: fadeInUp 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+body.light .cs-popup {
+    background: rgba(255, 255, 248, 0.97);
+}
+
+.cs-popup-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cs-popup-head h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.cs-popup-head h4 i {
+    color: var(--accent-glow);
+}
+
+.cs-popup-close {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.cs-popup-close:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+    background: rgba(191, 123, 94, 0.1);
+}
+
+.cs-popup-body {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.cs-popup-body p {
+    margin-bottom: 10px;
+}
+
+.cs-popup-body ul {
+    display: grid;
+    gap: 8px;
+    margin: 10px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.cs-popup-body ul li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+
+.cs-popup-body ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-glow);
+}
+
+.cs-popup-body strong {
+    color: var(--text-primary);
+}
+
+.cs-popup-body .cs-popup-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.cs-popup-tag.danger {
+    background: rgba(191, 123, 94, 0.2);
+    color: #e0a58a;
+}
+
+.cs-popup-tag.warn {
+    background: rgba(214, 180, 107, 0.2);
+    color: var(--warning);
+}
+
+.cs-popup-tag.ok {
+    background: rgba(46, 125, 94, 0.25);
+    color: var(--accent-glow);
+}
+
+.cs-popup-body .cs-popup-block {
+    padding: 12px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: rgba(10, 16, 12, 0.3);
+    margin: 10px 0;
+}
+
+body.light .cs-popup-body .cs-popup-block {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+/* ===== КЛИКАБЕЛЬНЫЕ ЧИПЫ (статьи, сноски) ===== */
+.cs-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: rgba(25, 35, 28, 0.4);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+body.light .cs-chip {
+    background: rgba(255, 255, 245, 0.6);
+}
+
+.cs-chip:hover {
+    border-color: var(--accent);
+    background: var(--card-hover);
+    box-shadow: 0 0 12px rgba(46, 125, 94, 0.2);
+    transform: translateY(-1px);
+}
+
+.cs-chip i {
+    font-size: 0.7rem;
+}
+
+.cs-chip.warn {
+    color: var(--warning);
+    border-color: rgba(214, 180, 107, 0.4);
+}
+
+.cs-chip.danger {
+    color: #e0a58a;
+    border-color: rgba(191, 123, 94, 0.4);
+}
+
+/* ===== АККОРДЕОНЫ ===== */
+.cs-acc {
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: rgba(25, 35, 28, 0.3);
+}
+
+body.light .cs-acc {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-acc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: left;
+    transition: background 0.2s ease;
+}
+
+.cs-acc-head:hover {
+    background: var(--card-hover);
+}
+
+.cs-acc-head .cs-acc-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cs-acc-head .cs-acc-title i {
+    color: var(--accent-glow);
+    width: 20px;
+    text-align: center;
+}
+
+.cs-acc-head .cs-acc-arrow {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.cs-acc.open .cs-acc-arrow {
+    transform: rotate(180deg);
+}
+
+.cs-acc-body {
+    display: none;
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--border-light);
+}
+
+.cs-acc.open .cs-acc-body {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+}
+
+.cs-acc-body .cs-text,
+.cs-acc-body .cs-list,
+.cs-acc-body .cs-warning,
+.cs-acc-body .cs-table-wrap {
+    margin-top: 12px;
+}
+
+/* ===== ИНТЕРАКТИВНАЯ ИДЕНТИФИКАЦИЯ (в форме / не в форме) ===== */
+.cs-idflow {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cs-idflow-step {
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 16px;
+    background: rgba(25, 35, 28, 0.3);
+}
+
+body.light .cs-idflow-step {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-idflow-step h5 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.cs-idflow-step h5 i {
+    color: var(--accent-glow);
+}
+
+.cs-idflow-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.cs-idflow-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: rgba(10, 16, 12, 0.3);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+body.light .cs-idflow-option {
+    background: rgba(255, 255, 245, 0.5);
+}
+
+.cs-idflow-option:hover {
+    border-color: var(--accent);
+    background: var(--card-hover);
+}
+
+.cs-idflow-option i {
+    color: var(--accent-glow);
+    font-size: 1rem;
+}
+
+.cs-idflow-result {
+    display: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
+.cs-idflow-result.show {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+}
+
+.cs-idflow-result.ok {
+    border: 1px solid var(--accent);
+    background: rgba(46, 125, 94, 0.12);
+}
+
+.cs-idflow-result.warn {
+    border: 1px solid rgba(214, 180, 107, 0.4);
+    background: rgba(214, 180, 107, 0.1);
+}
+
+.cs-idflow-result.danger {
+    border: 1px solid rgba(191, 123, 94, 0.5);
+    background: rgba(191, 123, 94, 0.12);
+}
+
+.cs-idflow-result strong {
+    color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+    .cs-idflow-options {
+        grid-template-columns: 1fr;
+    }
+}

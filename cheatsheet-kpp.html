@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ARMY Eclipse | Шпаргалка КПП</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/uc-dashboard.css">
+</head>
+<body>
+    <div class="top-actions">
+        <button class="top-btn theme-toggle" id="themeSwitch" type="button">
+            <i class="fas fa-sun"></i>
+            <span>Светлая тема</span>
+        </button>
+    </div>
+
+    <main class="container">
+        <header class="header compact-header">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-gun"></i></div>
+                <h1>ARMY Eclipse</h1>
+            </div>
+            <p class="subtitle">ШПАРГАЛКА КПП</p>
+        </header>
+
+        <div class="cs-page">
+            <div class="cs-page-header">
+                <h2><i class="fas fa-traffic-light"></i> Шпаргалка КПП</h2>
+                <a href="uc.html" class="cs-back-btn">
+                    <i class="fas fa-arrow-left"></i> К базе знаний
+                </a>
+            </div>
+
+            <div class="cs-shell">
+
+                <div class="cs-note">
+                    <div class="cs-note-title"><i class="fas fa-exclamation-triangle"></i> Главное правило</div>
+                    <p><strong>Ты не знаешь, кто перед тобой</strong> — гражданский, сотрудник или Губернатор. Твоя задача — <strong>идентифицировать</strong> и действовать по категории. Дерево работает для четырёх ситуаций: <strong>①</strong> транспортное средство прибыло к КПП для въезда, <strong>②</strong> пешеход прибыл к КПП со стороны дороги, <strong>③</strong> лицо обнаружено на территории форта, <strong>④</strong> транспортное средство следует на выезд с территории форта (проверка багажника + личности обязательна для <strong>гражданских</strong>, УКС п.3.3; госслужащие — только удостоверение).</p>
+                </div>
+
+                <!-- ===== ИНТЕРАКТИВНОЕ ДЕРЕВО РЕШЕНИЙ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-sitemap"></i> Интерактивное дерево решений</div>
+
+                    <div class="cs-wizard">
+                        <div class="cs-wizard-head">
+                            <h4><i class="fas fa-robot"></i> Мастер решений</h4>
+                            <div class="cs-wizard-progress" id="wizardProgress"></div>
+                        </div>
+                        <div class="cs-wizard-stage" id="wizardStage"></div>
+                        <button class="cs-wizard-restart" id="wizardRestart" type="button" style="display:none;">
+                            <i class="fas fa-rotate-left"></i> Начать заново
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ===== КАТЕГОРИИ ЛИЦ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-id-card"></i> Категории лиц (подробно)</div>
+
+                    <div class="cs-acc" data-acc>
+                        <button class="cs-acc-head" type="button" data-acc-head>
+                            <span class="cs-acc-title"><i class="fas fa-crown"></i> [А] Неприкосновенные лица</span>
+                            <i class="fas fa-chevron-down cs-acc-arrow"></i>
+                        </button>
+                        <div class="cs-acc-body">
+                            <p class="cs-text">Проверяется <strong>только служебное удостоверение</strong> (<span class="cs-chip" data-popup="uks33"><i class="fas fa-gavel"></i> УКС п.3.3</span>, Закон о неприкосновенности). <span class="cs-chip" data-popup="imm"><i class="fas fa-circle-info"></i> Кто неприкосновенен?</span></p>
+                            <div class="cs-table-wrap">
+                                <table class="cs-table">
+                                    <thead>
+                                        <tr><th>Лицо</th><th>На въезде</th><th>Уже на территории</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Губернатор</td><td>Пропуск незамедлительно</td><td>Не трогать</td></tr>
+                                        <tr><td>Вице-Губернатор</td><td>Пропуск незамедлительно</td><td>Не трогать</td></tr>
+                                        <tr><td>Генеральный прокурор и его Заместитель</td><td>Пропуск незамедлительно</td><td>Не трогать</td></tr>
+                                        <tr><td>Министр ВБ и его Заместитель</td><td>Пропуск незамедлительно</td><td>Не трогать</td></tr>
+                                        <tr><td>Курирующий военный прокурор</td><td>Пропуск незамедлительно</td><td>Не трогать</td></tr>
+                                        <tr><td>Судьи, Мэры, Руководители госструктур</td><td>Проверка удостоверения, БЕЗ досмотра</td><td>Не трогать</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="cs-warning"><strong>ВАЖНО:</strong> Неприкосновенное лицо <strong>нельзя досматривать, обыскивать, задерживать</strong> (кроме 13 статей УК). Кортеж с неприкосновенным лицом <strong>нельзя останавливать/досматривать</strong> вообще. Авто неприкосновенного <strong>нельзя досматривать</strong> даже при ЧП/ВП. Если не узнал Губернатора — это не преступление, но может быть санкция (знай Генералитет и первых лиц в лицо!).</div>
+                        </div>
+                    </div>
+
+                    <div class="cs-acc" data-acc>
+                        <button class="cs-acc-head" type="button" data-acc-head>
+                            <span class="cs-acc-title"><i class="fas fa-id-badge"></i> [Б] Госслужащие (LSPD/LSSD/FIB/USSS/SASPA/EMS/GOV)</span>
+                            <i class="fas fa-chevron-down cs-acc-arrow"></i>
+                        </button>
+                        <div class="cs-acc-body">
+                            <ul class="cs-list">
+                                <li>Проверить <strong>удостоверение / нашивку / жетон / бейдж</strong> — см. блок «Как удостовериться»</li>
+                                <li><strong>На въезде:</strong> на служебном ТС → проверить удостоверение → пропустить. На личном ТС → <strong>ОТКАЗ в доступе</strong> (кроме Губернатора, ВЦГ, Мэра ОБ при доставке)</li>
+                                <li><strong>Уже на территории:</strong> проверить право нахождения (служебная необходимость, оповестил по рации, на служебном ТС). Без оснований — выдворить/сообщить старшему/MPB</li>
+                                <li><strong>При выезде</strong> (на служебном ИЛИ личном ТС): уточнить цель нахождения (обоснованность визита) → <strong>ВЫПУСТИТЬ</strong> (БЕЗ досмотра и проверки багажника). Если находился НЕ обоснованно (проник: не оповестил по рации, личное ТС без разрешения) → это <span class="cs-chip danger" data-popup="art1271"><i class="fas fa-gavel"></i> 12.7.1</span> → задержать + MPB/Delta</li>
+                                <li>Госслужащие обязаны <strong>оповестить по рации департамента</strong> о визите</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cs-acc" data-acc>
+                        <button class="cs-acc-head" type="button" data-acc-head>
+                            <span class="cs-acc-title"><i class="fas fa-shield-halved"></i> [В] MPB / Delta (2+ бойца)</span>
+                            <i class="fas fa-chevron-down cs-acc-arrow"></i>
+                        </button>
+                        <div class="cs-acc-body">
+                            <p class="cs-text">Освобождены от всех проверок (<span class="cs-chip" data-popup="uks33"><i class="fas fa-gavel"></i> УКС п.3.3</span>) — и на въезде, и на территории, и при выезде.</p>
+                        </div>
+                    </div>
+
+                    <div class="cs-acc" data-acc>
+                        <button class="cs-acc-head" type="button" data-acc-head>
+                            <span class="cs-acc-title"><i class="fas fa-star"></i> [Г] Комендант / Генерал-Майор+</span>
+                            <i class="fas fa-chevron-down cs-acc-arrow"></i>
+                        </button>
+                        <div class="cs-acc-body">
+                            <p class="cs-text">Освобождены от всех проверок (<span class="cs-chip" data-popup="uks33"><i class="fas fa-gavel"></i> УКС п.3.3</span>) — и на въезде, и на территории, и при выезде.</p>
+                        </div>
+                    </div>
+
+                    <div class="cs-acc" data-acc>
+                        <button class="cs-acc-head" type="button" data-acc-head>
+                            <span class="cs-acc-title"><i class="fas fa-user"></i> [Д] Гражданские</span>
+                            <i class="fas fa-chevron-down cs-acc-arrow"></i>
+                        </button>
+                        <div class="cs-acc-body">
+                            <ul class="cs-list">
+                                <li>Паспорт + багажник + личный досмотр</li>
+                                <li><strong>Пропуск</strong> — только с <strong>письменного разрешения Генералитета</strong> (пропуск) и <strong>в сопровождении</strong> сотрудника SANG</li>
+                                <li>Часы посещения: <strong>12:00 – 24:00</strong></li>
+                                <li>Въезд только через <strong>КПП-2</strong> (КПП-1 — только для SANG на военном транспорте)</li>
+                                <li><strong>Без пропуска</strong> — НЕ пускать. Если уже на территории — <span class="cs-chip danger" data-popup="art1271"><i class="fas fa-gavel"></i> ст. 12.7.1</span>, задержание</li>
+                                <li><strong>При выезде:</strong> проверить багажник + личный досмотр. Без пропуска на территории → уже <span class="cs-chip danger" data-popup="art1271"><i class="fas fa-gavel"></i> 12.7.1</span>; если докажет случайность (видеофиксация) и нет иных нарушений → можно отпустить (по согласованию со старшим/MPB). Нарушение (<span class="cs-chip danger" data-popup="art128"><i class="fas fa-gavel"></i> 12.8</span> и т.д.) → задержать</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cs-warning"><strong>О выезде с форта (УКС п.3.3, 3.5, 3.9):</strong> Проверка <strong>всех выезжающих ТС</strong> — багажник + личный досмотр (обязательно) для <strong>гражданских</strong>. Госслужащий другой структуры (на служебном ИЛИ личном ТС) → сначала уточнить <strong>обоснованность нахождения</strong> (служебная необходимость, оповещение по рации) → <strong>ВЫПУСТИТЬ</strong> (БЕЗ досмотра и проверки багажника). Если госслужащий <strong>проник</strong> без оснований (не оповестил, личное ТС без разрешения) → <span class="cs-chip danger" data-popup="art1271"><i class="fas fa-gavel"></i> 12.7.1</span> → задержать + MPB/Delta. У военнослужащих SANG <strong>уточнять цель выезда</strong> (кроме Генералитета). Караульный имеет право <strong>запретить выезд</strong> военнослужащему при нарушении устава. <strong>Без проверок выпускаются:</strong> неприкосновенные (только удостоверение), MPB/Delta (2+), Комендант/Генерал-Майор+. Военнослужащие SANG на служебном транспорте (кроме организованных колонн) — освобождены от проверок багажника/досмотра, но цель выезда уточнить.</div>
+                </div>
+
+                <!-- ===== КАК УДОСТОВЕРИТЬСЯ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-id-badge"></i> Как удостовериться, что перед тобой сотрудник</div>
+
+                    <div class="cs-warning"><strong>ГЛАВНОЕ ПРАВИЛО (чтобы не получить NRP cop / не раскрыть агента):</strong> Сначала посмотри на <strong>форму одежды</strong> и <strong>окружение</strong> (есть ли рядом гражданские). От этого зависит, <strong>как</strong> требовать документы. Сотрудник под прикрытием в гражданском — это <strong>нормально</strong>, но требовать у него жетон <strong>при гражданских нельзя</strong> — это раскроет его личность.</div>
+
+                    <!-- Интерактивная идентификация -->
+                    <div class="cs-idflow">
+                        <div class="cs-idflow-step">
+                            <h5><i class="fas fa-shirt"></i> Шаг 1. В какой форме одежды человек?</h5>
+                            <div class="cs-idflow-options">
+                                <button class="cs-idflow-option" type="button" data-idopt="uniform">
+                                    <i class="fas fa-user-shield"></i> В форме / служебной одежде / броне
+                                </button>
+                                <button class="cs-idflow-option" type="button" data-idopt="civil">
+                                    <i class="fas fa-user"></i> В гражданской одежде (не в форме)
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cs-idflow-step" id="idStep2" style="display:none;">
+                            <h5><i class="fas fa-users"></i> Шаг 2. Есть ли рядом гражданские лица?</h5>
+                            <div class="cs-idflow-options">
+                                <button class="cs-idflow-option" type="button" data-idopt="alone">
+                                    <i class="fas fa-user-check"></i> Один / только госслужащие
+                                </button>
+                                <button class="cs-idflow-option" type="button" data-idopt="withcivs">
+                                    <i class="fas fa-user-group"></i> Рядом гражданские лица
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cs-idflow-result" id="idResult"></div>
+                    </div>
+
+                    <div class="cs-subsection">Форматы идентификационного знака (ПК Ст. 2.2 б):</div>
+                    <div class="cs-code">Обычные сотрудники:
+[Структура | Отдел | Номер | Инициалы]
+Пример: [LSPD | PAI | No123 | A.A.]
+
+Старший состав:
+[Структура | Должность | Номер | Инициалы]
+Пример: [LSPD | HEAD CPD | No321 | A.A.]
+
+Секретные отделы (БЕЗ имени — чтобы не раскрывать личность):
+[Структура | Отдел | Номер]
+Пример: [FIB | CID | No123]</div>
+                    <p class="cs-text">Секретные отделы: USSS (SAD), FIB (ATF, CID), LSPD (DB, SWAT), LSSD (DB, SEB), NG (Delta).</p>
+                    <div class="cs-warning"><strong>Важно про сотрудников под прикрытием (CID и т.д.):</strong> Они <strong>в гражданской одежде</strong> — это нормально, не требуй форму. Они <strong>обязаны</strong> показать удостоверение/жетон по требованию <strong>если вокруг нет гражданских</strong>. Жетон секретного отдела — <strong>без имени</strong>, только <code>[FIB | CID | No123]</code> — это законно. Если показал жетон → пропускай как госслужащего (БЕЗ досмотра). Если <strong>отказался</strong> показать (когда можно требовать) → рассматривай как гражданского, отказ = <span class="cs-chip danger" data-popup="art176"><i class="fas fa-gavel"></i> 17.6</span>.</div>
+                    <div class="cs-highlight"><strong>Что НЕ является предъявлением удостоверения:</strong> закрытие пальцем/рукой имени, должности или номера; частично скрытая информация.</div>
+                </div>
+
+                <!-- ===== СЛОЖНЫЕ СИТУАЦИИ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-route"></i> Сложные ситуации (разбор)</div>
+                    <div class="cs-grid">
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-user-secret"></i> 1. Сотрудник под прикрытием (CID/SAD/DB и т.д.) в гражданской одежде</h5>
+                            <p><strong>НЕ</strong> требуй форму — он под прикрытием, гражданская одежда это нормально. <strong>Если он один</strong> → можно попросить жетон. Жетон формата <code>[FIB | CID | No123]</code> (без имени) — законный. Пропускай как госслужащего (БЕЗ досмотра). <strong>Если рядом гражданские</strong> → <strong>НЕ требуй документы при них</strong> — это раскроет личность (NRP cop). Отведи в сторону или пропусти как госслужащего. Если отказался показать (когда можно требовать) → гражданский → 17.6 при отказе.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-id-card"></i> 2. Сотрудник без удостоверения (забыл/потерял)</h5>
+                            <p>Не может подтвердить статус → рассматривай как <strong>гражданского</strong>. Полная проверка (паспорт, багажник, досмотр). Если есть сомнения — вызови старшего/MPB.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-hand"></i> 3. Отказ предъявить документы</h5>
+                            <p>1-е требование → 2-е требование (пауза ≥5 сек). Ст. 17.6 УК (неповиновение). Стадии силы → задержание.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-car"></i> 4. Кортеж с неприкосновенным лицом</h5>
+                            <p><strong>НЕЛЬЗЯ</strong> останавливать, досматривать, обыскивать. Пропустить беспрепятственно.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-ban"></i> 5. Гражданский без пропуска на въезде</h5>
+                            <p>НЕ пускать, развернуть. Если пытается пройти/проникнуть → ст. 12.7.1 → задержание + MPB/Delta.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-person-walking"></i> 6. Гражданский уже на территории форта (проехал мимо патрулей)</h5>
+                            <p>Он уже нарушил <strong>ст. 12.7.1</strong> (незаконное проникновение на особо охраняемый объект). НЕ отпускать, НЕ пропускать дальше. Остановить → представиться → потребовать документы. Проверить пропуск: <strong>нет пропуска</strong> → ЗАДЕРЖАТЬ по ст. 12.7.1 + вызвать MPB/Delta; <strong>есть пропуск, но без сопровождения</strong> → задержать (нарушение пропускного режима); <strong>есть пропуск + сопровождение</strong> → проверить срок/маршрут → сопроводить/вывести. Если докажет случайность (видеофиксация) и нет иных нарушений (12.8 и т.д.) → можно отпустить (по согласованию со старшим/MPB).</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-building"></i> 7. Госслужащий уже на территории без оснований</h5>
+                            <p>Проверить удостоверение/жетон. Спросить цель нахождения, проверить оповещение по рации. Если находится обоснованно (служебная необходимость) → НЕ ТРОГАТЬ. Без оснований (проник: не оповестил, личное ТС без разрешения) → <strong>12.7.1</strong> → задержать / сообщить старшему / MPB. Если не может подтвердить статус → как гражданский → 12.7.1.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-sign-out-alt"></i> 7.1 Госслужащий выезжает с форта (на служебном ИЛИ личном ТС)</h5>
+                            <p>Остановить → проверить удостоверение/жетон. Сначала уточнить <strong>обоснованность нахождения</strong> (цель визита, оповещение по рации). Если находился обоснованно → <strong>ВЫПУСТИТЬ</strong> (БЕЗ досмотра и проверки багажника). Если госслужащий <strong>проник</strong> без оснований (не оповестил, личное ТС без разрешения) → <strong>12.7.1</strong> → задержать + MPB/Delta. <strong>ВАЖНО:</strong> госслужащего <strong>НЕЛЬЗЯ досматривать и проверять багажник</strong> — только удостоверение. Служебное оружие и лицензия — <strong>НЕ нарушение</strong>, 12.8 за штатное оружие не применяется. Неприкосновенное лицо при выезде — только удостоверение, без досмотра. <strong>Важно:</strong> при выезде неважно, на служебном или личном ТС — проверка одинаковая (только удостоверение). Ограничение на личный транспорт действует только <strong>на въезд</strong>. <strong>Боди-камеры:</strong> госслужащий при форме обязан иметь записи (УНГ п.13.2, ПК Ст. 9); под прикрытием (в гражданском) — жетон без имени законен, но удостоверение показать обязан (если вокруг нет гражданских).</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-ambulance"></i> 8. EMS по вызову</h5>
+                            <p>Пропуск <strong>только с разрешения руководящего состава SANG</strong>. Проверить, что вызов подтверждён.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-gavel"></i> 9. Адвокат</h5>
+                            <p>Доступ на КПП/закрытую территорию — только в рамках процессуальных действий. Без сопровождения на закрытую территорию — НЕ пускать.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-newspaper"></i> 10. Журналист Weazel News</h5>
+                            <p>Приравнивается к <strong>гражданскому лицу</strong>. Полная проверка, пропуск только с разрешения Генералитета.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-person-running"></i> 11. Дезертир (военнослужащий SANG вне территории)</h5>
+                            <p>30 мин после начала работы/увольнительного → ст. 18.3 УК. 31+ мин → ст. 18.4 УК (дезертирство). Вызвать MPB (они ведут розыск дезертиров).</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-clock"></i> 12. Комендантский час</h5>
+                            <p>Территория ФЗ недоступна для всех, кроме: военнослужащих, Губернатора, ВЦГ, МВБ, ЗМВБ, ГП, ЗГП, военного прокурора, EMS/Минздрава (для проверки). Главенствует Комендант/Генералитет.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-crosshairs"></i> 13. Нападение на ФЗ</h5>
+                            <p>Немедленно доложить по рации. Задержать на территории поста / огонь на поражение (если нет возможности задержать). Вызвать MPB, Delta, офицерский состав/Генералитет. Оказать ПМП задержанному.</p>
+                        </div>
+                        <div class="cs-grid-item">
+                            <h5><i class="fas fa-moon"></i> 14. Ночное время (00:00 – 12:00)</h5>
+                            <p>Оружие держать <strong>в подсумке</strong>. При ЧС — применить.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== 5 СТАДИЙ СИЛЫ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-hand-fist"></i> 5 стадий применения силы (ПК Гл. IV)</div>
+                    <div class="cs-table-wrap">
+                        <table class="cs-table">
+                            <thead>
+                                <tr><th>Стадия</th><th>Действие</th><th>Когда</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>1. Присутствие</strong></td><td>В форме, оружие в кобуре/извлечено</td><td>Всегда</td></tr>
+                                <tr><td><strong>2. Приказ</strong></td><td>Устное требование («Я сотрудник SANG, законное требование...»)</td><td>При отказе</td></tr>
+                                <tr><td><strong>3. Физическое воздействие</strong></td><td>Захваты, заломы, удары, дубинка</td><td>При сопротивлении</td></tr>
+                                <tr><td><strong>4. Нелетальные спецсредства</strong></td><td>Тайзер, пластиковые пули</td><td>При активном сопротивлении</td></tr>
+                                <tr><td><strong>5. Летальные средства</strong></td><td>Огнестрельное оружие</td><td>Угроза жизни</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cs-highlight"><strong>Когда можно ПРОПУСКАТЬ стадии:</strong> нестабильная/экстренная ситуация; субъект уже нарушил закон; угроза жизни человеку/офицеру; вооружённый преступник.</div>
+                    <div class="cs-warning"><strong>ОГОНЬ НА ПОРАЖЕНИЕ (особо охраняемый объект):</strong> <strong>Красная зона:</strong> посторонний → идентифицировать → если неопознан/не подчиняется → <strong>огонь без предупреждения</strong>. Провокационные действия → огонь без предупреждения. <strong>Оранжевая зона:</strong> 1 требование покинуть/обосновать → игнорирование → <strong>огонь на поражение</strong>.</div>
+                </div>
+
+                <!-- ===== ЗОНЫ ФОРТА ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-map"></i> Зоны Форта Занкудо</div>
+                    <div class="cs-table-wrap">
+                        <table class="cs-table">
+                            <thead>
+                                <tr><th>Зона</th><th>Кто может</th><th>Правила</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>🔴 Красная</strong></td><td>SANG, госслужащие (по закону), МВБ, военный прокурор, лица с пропуском</td><td>Огонь на поражение без предупреждения при неопознанности/неподчинении</td></tr>
+                                <tr><td><strong>🟠 Оранжевая</strong></td><td>То же</td><td>1 требование → огонь. 22:00-12:00 запрещено. КПП-1 запрещено круглосуточно</td></tr>
+                                <tr><td><strong>🟡 Жёлтая</strong></td><td>Все граждане (не нарушающие закон)</td><td>По требованию покинуть/показать документы</td></tr>
+                                <tr><td><strong>🟣 Фиолетовая</strong></td><td>Дорога к КПП-2</td><td>По требованию показать документы</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ===== СТАТЬИ УК ДЛЯ КПП ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-book"></i> Статьи УК для КПП (быстрый доступ)</div>
+                    <div class="cs-table-wrap">
+                        <table class="cs-table">
+                            <thead>
+                                <tr><th>Статья</th><th>Название</th><th>Когда</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>17.6 [Ш]</strong></td><td>Неповиновение законному требованию</td><td>Отказ подчиниться (≥5 сек)</td></tr>
+                                <tr><td><strong>17.3 [Ш]</strong></td><td>Оскорбление представителя власти</td><td>Оскорбление, плевок, пощёчина</td></tr>
+                                <tr><td><strong>17.9 [Ш]</strong></td><td>Провокация/помеха работе госслужащего</td><td>Вмешательство, ложный вызов</td></tr>
+                                <tr><td><strong>17.1 [Ш]</strong></td><td>Посягательство на жизнь сотрудника государственной организации при исполнении</td><td>Применение спецсредств/огнестрельного оружия в отношении сотрудника</td></tr>
+                                <tr><td><strong>12.7.1** [Ш]</strong></td><td>Проникновение на особо охраняемый объект</td><td><strong>Форт Занкудо (NG)</strong>, SASPA — вход/нахождение без пропуска</td></tr>
+                                <tr><td><strong>12.7 [Ш]</strong></td><td>Проникновение на закрытую/охраняемую территорию</td><td>GOV, FIB, LSPD, LSSD, EMS, WN — вход без разрешения</td></tr>
+                                <tr><td><strong>12.8*</strong></td><td>Незаконное ношение оружия</td><td>Запрещённое оружие</td></tr>
+                                <tr><td><strong>13.4 [Ш]</strong></td><td>Маска, скрывающая личность</td><td>Ношение маски (кроме мед.)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ===== ПРОЦЕДУРА ЗАДЕРЖАНИЯ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-lock"></i> Процедура задержания (кратко)</div>
+                    <div class="cs-subsection">Гражданское лицо (ПК Ст. 2.2):</div>
+                    <ul class="cs-list">
+                        <li>Надеть наручники</li>
+                        <li>Предъявить удостоверение/жетон</li>
+                        <li>Первичный обыск</li>
+                        <li>Доставить в служебный транспорт</li>
+                        <li>Зачитать <strong>Правило Миранды</strong> + статьи с расшифровкой</li>
+                        <li>Доставить в КПЗ LSPD/LSSD/SASPA</li>
+                        <li>Право на адвоката + 1 звонок</li>
+                    </ul>
+                    <div class="cs-subsection">Госслужащий (ПК Ст. 3.4):</div>
+                    <ul class="cs-list">
+                        <li>Надеть наручники (при веских основаниях)</li>
+                        <li>Предъявить удостоверение</li>
+                        <li><strong>Первичный обыск НЕ проводится</strong> (только поиск удостоверения)</li>
+                        <li>Зачитать Миранду + статьи с расшифровкой</li>
+                        <li>Доставить</li>
+                        <li><strong>Сообщить начальству задержанного + Прокуратуре</strong> через рацию департамента</li>
+                        <li>Ждать начальство/прокурора (30 мин → права переходят, 60 мин → освободить)</li>
+                    </ul>
+                    <div class="cs-note">
+                        <div class="cs-note-title"><i class="fas fa-microphone"></i> Правило Миранды</div>
+                        <p>«Вы имеете право хранить молчание. Всё, что вы скажете, может и будет использовано против Вас. Вы имеете право на один телефонный звонок. Также Вы имеете право на адвоката. Если вам необходим адвокат, он будет для Вас запрошен. Вы понимаете свои права?»</p>
+                    </div>
+                </div>
+
+                <!-- ===== ЧЕГО НЕЛЬЗЯ ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-ban"></i> Чего делать нельзя (чтобы не попасть на 15.6)</div>
+                    <ul class="cs-list">
+                        <li><strong>Не пропускай без проверки</strong> — всегда идентифицируй</li>
+                        <li><strong>Не пропускай гражданских без пропуска Генералитета</strong> — это 12.7.1 (Форт Занкудо — особо охраняемый объект)</li>
+                        <li><strong>Не досматривай неприкосновенных</strong> — только удостоверение</li>
+                        <li><strong>Не останавливай кортежи</strong> с неприкосновенным лицом</li>
+                        <li><strong>Не требуй форму</strong> у сотрудников под прикрытием (CID и т.д.) — требуй жетон</li>
+                        <li><strong>Не задерживай без основания</strong> — нужна статья УК</li>
+                        <li><strong>Не применяй силу без стадий</strong> (кроме экстренных ситуаций)</li>
+                        <li><strong>Не покидай пост</strong> для нейтрализации нарушителей</li>
+                        <li><strong>Не вызывай LSPD/LSSD/FIB</strong> самостоятельно — только через старшего</li>
+                        <li><strong>Не вывози нарушителя</strong> в LSPD/LSSD/FIB без разрешения старшего</li>
+                        <li><strong>Не пропускай посторонних</strong> без разрешения Генералитета</li>
+                        <li><strong>Не выпускай ТС гражданского без проверки багажника</strong> — проверка обязательна для гражданских (УКС п.3.3); госслужащих НЕ досматривай</li>
+                        <li><strong>Не спи на посту</strong> (кроме 5 мин в будке, 1 боец, снять броню и оружие)</li>
+                        <li><strong>Не отключай рацию</strong> — доклад каждые 30 минут</li>
+                        <li><strong>Не залезай на будку/технику</strong> на посту</li>
+                        <li><strong>Не веди неестественное поведение</strong> (эмоции, прыжки, беготня)</li>
+                        <li><strong>Не включай музыку/звук</strong> на посту</li>
+                    </ul>
+                </div>
+
+                <!-- ===== БЫСТРАЯ ПАМЯТКА ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-bolt"></i> Быстрая памятка (выжимка)</div>
+                    <div class="cs-flow">
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-eye"></i></div>
+                            <div class="cs-flow-text"><strong>УВИДЕЛ → ОСТАНОВИЛ → ПРЕДСТАВИЛСЯ → ПОТРЕБОВАЛ ДОКУМЕНТЫ</strong></div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-crown"></i></div>
+                            <div class="cs-flow-text"><strong>Неприкосновенное лицо</strong> → удостоверение → ПРОПУСТИ (без досмотра)</div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-id-badge"></i></div>
+                            <div class="cs-flow-text"><strong>Госслужащий</strong> (жетон/удостоверение): на въезде → проверить удостоверение → ПРОПУСТИ (БЕЗ досмотра); на территории → проверить право → не трогать / выдворить; при выезде → уточнить обоснованность → ВЫПУСТИ (БЕЗ досмотра)</div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div class="cs-flow-text"><strong>MPB/Delta (2+)</strong> → ПРОПУСТИ (без проверок) &nbsp;•&nbsp; <strong>Комендант/Генерал-Майор+</strong> → ПРОПУСТИ (без проверок)</div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-user"></i></div>
+                            <div class="cs-flow-text"><strong>Гражданский:</strong> есть пропуск + сопровождение → ПРОПУСТИ (при выезде — проверь); нет пропуска (на въезде) → НЕ ПУСКАЙ; нет пропуска (уже на форте) → 12.7.1 → ЗАДЕРЖИ + MPB/Delta</div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-military-helmet"></i></div>
+                            <div class="cs-flow-text"><strong>Военнослужащий SANG при выезде</strong> → уточни цель (УКС п.3.9)</div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-question"></i></div>
+                            <div class="cs-flow-text">Не может подтвердить статус → как <strong>ГРАЖДАНСКИЙ</strong></div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-file-contract"></i></div>
+                            <div class="cs-flow-text">Отказ от документов → <strong>17.6</strong> → СТАДИИ СИЛЫ → ЗАДЕРЖАНИЕ</div>
+                        </div>
+                        <div class="cs-flow-arrow">▼</div>
+                        <div class="cs-flow-item">
+                            <div class="cs-flow-icon"><i class="fas fa-skull-crossbones"></i></div>
+                            <div class="cs-flow-text">Агрессия/угроза → СТАДИИ СИЛЫ → ЗАДЕРЖАНИЕ / <strong>ОГОНЬ</strong> (по зоне)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ВАЖНО ===== -->
+                <div class="cs-section">
+                    <div class="cs-section-title"><i class="fas fa-star"></i> Важно!</div>
+                    <ul class="cs-list">
+                        <li><strong>Всегда идентифицируй</strong> — не знаешь кто перед тобой, пока не проверил</li>
+                        <li><strong>Неприкосновенных не досматривай</strong> — только удостоверение</li>
+                        <li><strong>Сотрудник под прикрытием</strong> — жетон без имени это законно, не требуй форму</li>
+                        <li><strong>Гражданский без пропуска</strong> — на въезде не пускай, на территории задерживай (12.7.1)</li>
+                        <li><strong>Отказ от документов</strong> = 17.6, действуй по стадиям силы</li>
+                        <li><strong>Красная/оранжевая зона</strong> — огонь на поражение при неопознанности/неподчинении</li>
+                        <li><strong>Докладывай по рации</strong> каждые 30 минут и о прибытии важных лиц</li>
+                        <li><strong>Веди видеофиксацию</strong> — храни 72 часа</li>
+                        <li><strong>Не покидай пост</strong> и не вызывай сторонние структуры без разрешения</li>
+                    </ul>
+                </div>
+
+                <div class="cs-footer">Шпаргалка создана на основе: Устава Караульной Службы SANG, Устава Национальной Гвардии SANG, Процессуального Кодекса (ред. 08.06.2026), Закона «О неприкосновенности должностных лиц» (ред. 27.01.2025), Закона «О закрытых и охраняемых территориях» (ред. 10.01.2026), Уголовного Кодекса (ред. 23.05.2026)</div>
+            </div>
+        </div>
+        <div class="footer-signature" style="margin-top: 40px;">By Marcus_DeHaus</div>
+    </main>
+
+    <script>
+        // ===== Переключение темы =====
+        (function () {
+            var btn = document.getElementById('themeSwitch');
+            var saved = localStorage.getItem('uc-theme');
+            if (saved === 'light') {
+                document.body.classList.add('light');
+                btn.innerHTML = '<i class="fas fa-moon"></i><span>Тёмная тема</span>';
+            }
+            btn.addEventListener('click', function () {
+                document.body.classList.toggle('light');
+                var isLight = document.body.classList.contains('light');
+                localStorage.setItem('uc-theme', isLight ? 'light' : 'dark');
+                btn.innerHTML = isLight
+                    ? '<i class="fas fa-moon"></i><span>Тёмная тема</span>'
+                    : '<i class="fas fa-sun"></i><span>Светлая тема</span>';
+            });
+        })();
+
+        // ===== Интерактивный мастер дерева решений =====
+        (function () {
+            var stage = document.getElementById('wizardStage');
+            var progress = document.getElementById('wizardProgress');
+            var restartBtn = document.getElementById('wizardRestart');
+            var history = [];
+            var maxSteps = 3;
+
+            // Определения шагов: каждая запись = вопрос с вариантами
+            // next: переход на следующий вопрос
+            // result: финальная карточка-решение
+            // actions: регламентный порядок действий с фразами
+            var flow = {
+                start: {
+                    question: 'Определите ситуацию:',
+                    options: [
+                        { icon: 'fa-person-walking', text: 'Пешеход прибыл к КПП со стороны дороги', next: 'pedestrian' },
+                        { icon: 'fa-person-circle-question', text: 'Лицо обнаружено на территории форта', next: 'territory' },
+                        { icon: 'fa-arrow-right-to-bracket', text: 'Транспортное средство прибыло к КПП для въезда', next: 'category' },
+                        { icon: 'fa-arrow-right-from-bracket', text: 'Транспортное средство следует на выезд с территории форта', next: 'exit' }
+                    ]
+                },
+                category: {
+                    question: 'Определите категорию лица, прибывшего на въезд:',
+                    options: [
+                        { icon: 'fa-crown', text: 'Неприкосновенное лицо', next: 'imm_entry' },
+                        { icon: 'fa-id-badge', text: 'Госслужащий (LSPD/LSSD/FIB/USSS/SASPA/EMS/GOV)', next: 'gov_entry' },
+                        { icon: 'fa-shield-halved', text: 'MPB / Delta (2+ бойца)', next: 'pass' },
+                        { icon: 'fa-star', text: 'Комендант / Генерал-Майор+', next: 'pass' },
+                        { icon: 'fa-user', text: 'Гражданское лицо', next: 'civ_entry' },
+                        { icon: 'fa-circle-question', text: 'Не может подтвердить статус сотрудника', next: 'civ_entry' }
+                    ]
+                },
+                pedestrian: {
+                    question: 'Определите категорию пешехода, прибывшего к КПП:',
+                    options: [
+                        { icon: 'fa-crown', text: 'Неприкосновенное лицо', next: 'imm_ped' },
+                        { icon: 'fa-id-badge', text: 'Госслужащий (LSPD/LSSD/FIB/USSS/SASPA/EMS/GOV)', next: 'gov_ped' },
+                        { icon: 'fa-shield-halved', text: 'MPB / Delta (2+ бойца)', next: 'pass' },
+                        { icon: 'fa-star', text: 'Комендант / Генерал-Майор+', next: 'pass' },
+                        { icon: 'fa-user', text: 'Гражданское лицо', next: 'civ_ped' }
+                    ]
+                },
+                territory: {
+                    question: 'Определите категорию лица, обнаруженного на территории форта:',
+                    options: [
+                        { icon: 'fa-crown', text: 'Неприкосновенное лицо', next: 'imm_terr' },
+                        { icon: 'fa-id-badge', text: 'Госслужащий', next: 'gov_terr' },
+                        { icon: 'fa-shield-halved', text: 'MPB / Delta (2+ бойца)', next: 'pass' },
+                        { icon: 'fa-star', text: 'Комендант / Генерал-Майор+', next: 'pass' },
+                        { icon: 'fa-user', text: 'Гражданское лицо', next: 'civ_terr' }
+                    ]
+                },
+                exit: {
+                    question: 'Определите категорию лица, следующего на выезд:',
+                    options: [
+                        { icon: 'fa-crown', text: 'Неприкосновенное лицо', next: 'imm_exit' },
+                        { icon: 'fa-id-badge', text: 'Госслужащий (служебное ИЛИ личное ТС)', next: 'gov_exit' },
+                        { icon: 'fa-shield-halved', text: 'MPB / Delta (2+ бойца)', next: 'pass' },
+                        { icon: 'fa-star', text: 'Комендант / Генерал-Майор+', next: 'pass' },
+                        { icon: 'fa-user', text: 'Гражданское лицо (проверка обязательна)', next: 'civ_exit' },
+                        { icon: 'fa-military-helmet', text: 'Военнослужащий SANG', next: 'sang_exit' }
+                    ]
+                },
+                imm_entry: {
+                    result: 'pass', title: 'ПРОПУСТИТЬ', icon: 'fa-crown', badge: 'Пропустить', articles: ['УКС п.3.3'],
+                    desc: 'Неприкосновенное лицо: проверка только служебного удостоверения. Досмотр ЗАПРЕЩЁН. Кортеж не останавливать.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить служебное удостоверение',
+                        'Проверить удостоверение (досмотр ЗАПРЕЩЁН)',
+                        'Пропустить: «Проезжайте, господин Губернатор»'
+                    ]
+                },
+                imm_ped: {
+                    result: 'pass', title: 'ПРОПУСТИТЬ', icon: 'fa-crown', badge: 'Пропустить', articles: ['УКС п.3.3'],
+                    desc: 'Неприкосновенное лицо: проверка только служебного удостоверения. Досмотр ЗАПРЕЩЁН.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить служебное удостоверение',
+                        'Проверить удостоверение (досмотр ЗАПРЕЩЁН)',
+                        'Пропустить: «Проходите, господин Губернатор»'
+                    ]
+                },
+                imm_terr: {
+                    result: 'pass', title: 'НЕ ТРОГАТЬ', icon: 'fa-crown', badge: 'Не трогать', articles: ['Закон о неприкосновенности'],
+                    desc: 'Неприкосновенное лицо имеет право находиться на территории форта. Не досматривать, не останавливать.',
+                    actions: [
+                        'Не останавливать и не досматривать',
+                        'Доложить по рации о прибытии важного лица',
+                        'Продолжить несение службы'
+                    ]
+                },
+                imm_exit: {
+                    result: 'pass', title: 'ПРОПУСТИТЬ', icon: 'fa-crown', badge: 'Пропустить', articles: ['УКС п.3.3'],
+                    desc: 'При выезде неприкосновенного лица — только проверка удостоверения, без досмотра.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить служебное удостоверение',
+                        'Проверить удостоверение (досмотр ЗАПРЕЩЁН)',
+                        'Пропустить: «Счастливого пути, господин Губернатор»'
+                    ]
+                },
+                gov_entry: {
+                    result: 'check', title: 'ПРОВЕРИТЬ УДОСТОВЕРЕНИЕ → ПРОПУСТИТЬ', icon: 'fa-id-badge', badge: 'Проверить', articles: [],
+                    desc: 'Госслужащий на въезде: проверить удостоверение/жетон. На служебном ТС → пропустить (БЕЗ досмотра). На личном ТС — ОТКАЗ в доступе (кроме Губернатора, ВЦГ, Мэра ОБ).',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить удостоверение/жетон/нашивку',
+                        'Проверить удостоверение (формат ПК Ст. 2.2 б)',
+                        'Пропустить: «Проезжайте, офицер» (БЕЗ досмотра)'
+                    ]
+                },
+                gov_ped: {
+                    result: 'check', title: 'ПРОВЕРИТЬ УДОСТОВЕРЕНИЕ → ПРОПУСТИТЬ', icon: 'fa-id-badge', badge: 'Проверить', articles: [],
+                    desc: 'Госслужащий-пешеход: проверить удостоверение/жетон. На личном транспорте — ОТКАЗ в доступе (кроме Губернатора, ВЦГ, Мэра ОБ).',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить удостоверение/жетон/нашивку',
+                        'Проверить удостоверение (формат ПК Ст. 2.2 б)',
+                        'Пропустить: «Проходите, офицер» (БЕЗ досмотра)'
+                    ]
+                },
+                gov_terr: {
+                    result: 'check', title: 'ПРОВЕРИТЬ ПРАВО НАХОЖДЕНИЯ', icon: 'fa-id-badge', badge: 'Проверить', articles: ['12.7.1** [Ш]'],
+                    desc: 'Спросить цель, проверить оповещение по рации. Служебная необходимость → НЕ ТРОГАТЬ. Без оснований (проник: не оповестил, личное ТС без разрешения) → 12.7.1 → задержать / сообщить старшему / MPB. Если не может подтвердить статус → как гражданский → 12.7.1.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить удостоверение/жетон',
+                        'Спросить цель нахождения, проверить оповещение по рации',
+                        'Служебная необходимость → «Извините, офицер, проходите»',
+                        'Без оснований / проник → 12.7.1 → задержать / сообщить старшему / MPB'
+                    ]
+                },
+                gov_exit: {
+                    result: 'check', title: 'ПРОВЕРИТЬ ОБОСНОВАННОСТЬ → ВЫПУСТИТЬ', icon: 'fa-id-badge', badge: 'Проверить', articles: ['12.7.1** [Ш]'],
+                    desc: 'Госслужащий при выезде: уточнить обоснованность нахождения (цель визита, оповещение по рации). Если находился обоснованно → ВЫПУСТИТЬ. ВАЖНО: госслужащего НЕЛЬЗЯ досматривать и проверять багажник — только удостоверение. Если проник без оснований → 12.7.1 → задержать + MPB/Delta.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить удостоверение/жетон',
+                        'Уточнить обоснованность нахождения (цель, оповещение по рации, ТС)',
+                        'Обоснованно → «Можете следовать, офицер» (БЕЗ досмотра и проверки багажника)',
+                        'Проник без оснований (не оповестил, личное ТС без разрешения) → 12.7.1 → задержать + MPB/Delta'
+                    ]
+                },
+                civ_entry: {
+                    result: 'check', title: 'ГРАЖДАНСКОЕ ЛИЦО: ПОЛНАЯ ПРОВЕРКА', icon: 'fa-user', badge: 'Проверить', articles: ['12.7.1** [Ш]', '17.6'],
+                    desc: 'Есть письменный пропуск от Генералитета + сопровождение SANG → ПРОПУСТИТЬ (12:00-24:00, только КПП-2). Без пропуска → НЕ ПУСКАТЬ, развернуть. Если пытается проникнуть → 12.7.1. Отказ показать документы → 17.6 → стадии силы → задержание.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить паспорт',
+                        'Проверить наличие письменного пропуска от Генералитета',
+                        'Есть пропуск + сопровождение → «Проезжайте, гражданин» (12:00-24:00, КПП-2)',
+                        'Нет пропуска → «Вам запрещён въезд, развернитесь»; при попытке проникнуть → 12.7.1',
+                        'Отказ от документов → 17.6 → стадии силы → задержание'
+                    ]
+                },
+                civ_ped: {
+                    result: 'check', title: 'ГРАЖДАНСКОЕ ЛИЦО: ПОЛНАЯ ПРОВЕРКА', icon: 'fa-user', badge: 'Проверить', articles: ['12.7.1** [Ш]', '17.6'],
+                    desc: 'Пешеход: паспорт + личный досмотр. Пропуск только с письменного разрешения Генералитета + сопровождение SANG. Без пропуска — НЕ пускать, при попытке проникнуть → 12.7.1.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить паспорт',
+                        'Проверить наличие письменного пропуска от Генералитета',
+                        'Есть пропуск + сопровождение → «Проходите, гражданин»',
+                        'Нет пропуска → «Вам запрещён вход на территорию»; при попытке проникнуть → 12.7.1',
+                        'Отказ от документов → 17.6 → стадии силы → задержание'
+                    ]
+                },
+                civ_terr: {
+                    result: 'arrest', title: 'ЗАДЕРЖАТЬ ПО СТ. 12.7.1', icon: 'fa-user', badge: 'Задержать', articles: ['12.7.1** [Ш]'],
+                    desc: 'Гражданское лицо на территории форта — нарушило ст. 12.7.1 (незаконное проникновение на особо охраняемый объект). Остановить, представиться, потребовать документы. Если докажет случайность (видеофиксация) и нет иных нарушений → можно отпустить (по согласованию со старшим/MPB). Есть пропуск + сопровождение → проверить срок/маршрут → сопроводить/вывести.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить паспорт',
+                        'Проверить пропуск: нет → 12.7.1 → ЗАДЕРЖАТЬ, вызвать MPB/Delta',
+                        'Если докажет случайность (видео) и нет нарушений → отпустить (согласовать со старшим/MPB)',
+                        'Есть пропуск, но без сопровождения → задержать (нарушение пропускного режима)',
+                        'Есть пропуск + сопровождение → проверить срок/маршрут → сопроводить/вывести'
+                    ]
+                },
+                civ_exit: {
+                    result: 'check', title: 'ПРОВЕРИТЬ БАГАЖНИК + ДОСМОТР → ВЫПУСТИТЬ', icon: 'fa-user', badge: 'Проверить', articles: ['12.7.1** [Ш]', '12.8*'],
+                    desc: 'Гражданское лицо при выезде: проверить багажник + личный досмотр (УКС п.3.3). Без пропуска на территории → уже 12.7.1. Если докажет случайность (видеофиксация) и нет иных нарушений → можно отпустить (по согласованию со старшим/MPB). Если нашёл нарушение (12.8 и т.д.) → задержать + MPB/Delta.',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии» + предъявить жетон',
+                        'Потребовать предъявить паспорт',
+                        'Проверить багажник + личный досмотр (УКС п.3.3)',
+                        'Без пропуска на территории → уже 12.7.1; если докажет случайность (видео) и нет нарушений → отпустить (согласовать со старшим/MPB)',
+                        'Чисто (с пропуском) → «Можете следовать, гражданин»',
+                        'Нарушение (12.8 и т.д.) → задержать + вызвать MPB/Delta'
+                    ]
+                },
+                sang_exit: {
+                    result: 'check', title: 'УТОЧНИТЬ ЦЕЛЬ ВЫЕЗДА', icon: 'fa-military-helmet', badge: 'Уточнить', articles: ['УКС п.3.9'],
+                    desc: 'Военнослужащий SANG при выезде — уточнить цель (УКС п.3.9). Освобождён от проверки багажника/досмотра (кроме организованных колонн).',
+                    actions: [
+                        'Остановить и представиться: «Я сотрудник Национальной Гвардии»',
+                        'Уточнить цель выезда: «Назовите цель выезда, боец»',
+                        'Цель обоснована → «Следуйте, боец»',
+                        'Нарушение устава → запретить выезд'
+                    ]
+                },
+                pass: {
+                    result: 'pass', title: 'ПРОПУСТИТЬ БЕЗ ПРОВЕРОК', icon: 'fa-shield-halved', badge: 'Пропустить', articles: ['УКС п.3.3'],
+                    desc: 'MPB/Delta (2+) или Комендант/Генерал-Майор+ — освобождены от всех проверок (УКС п.3.3): на въезде, на территории, при выезде.',
+                    actions: [
+                        'Не останавливать и не досматривать',
+                        'Доложить по рации о прибытии',
+                        'Пропустить беспрепятственно'
+                    ]
+                }
+            };
+
+            function buildResult(key, pathLen) {
+                var d = flow[key];
+                var icons = {
+                    pass: 'fa-circle-check',
+                    check: 'fa-magnifying-glass',
+                    arrest: 'fa-handcuffs'
+                };
+                var articlesHtml = '';
+                if (d.articles && d.articles.length) {
+                    articlesHtml = '<div class="cs-result-articles">' +
+                        d.articles.map(function (a) {
+                            return '<span class="cs-result-article"><i class="fas fa-gavel"></i> ' + a + '</span>';
+                        }).join('') +
+                        '</div>';
+                }
+                var actionsHtml = '';
+                if (d.actions && d.actions.length) {
+                    actionsHtml = '<div class="cs-result-actions"><div class="cs-result-actions-title"><i class="fas fa-list-ol"></i> Порядок действий</div>' +
+                        '<ol class="cs-result-actions-list">' +
+                        d.actions.map(function (a) {
+                            return '<li>' + a + '</li>';
+                        }).join('') +
+                        '</ol></div>';
+                }
+                return '<div class="cs-result ' + d.result + '">' +
+                    '<div class="cs-result-badge"><i class="fas ' + icons[d.result] + '"></i> ' + d.badge + '</div>' +
+                    '<div class="cs-result-title"><i class="fas ' + d.icon + '"></i> ' + d.title + '</div>' +
+                    '<div class="cs-result-desc">' + d.desc + '</div>' +
+                    actionsHtml +
+                    articlesHtml +
+                    '</div>';
+            }
+
+            function renderStep(key) {
+                var d = flow[key];
+                if (!d) return;
+
+                history.push(key);
+                var len = history.length;
+
+                // Прогресс
+                var dots = '';
+                for (var i = 1; i <= maxSteps; i++) {
+                    var cls = 'step-dot';
+                    if (i < len && d.result) cls += ' done';
+                    else if (i < len) cls += ' done';
+                    if (i === len) cls += ' current';
+                    dots += '<span class="' + cls + '"></span>';
+                }
+                progress.innerHTML = 'Шаг ' + len + ' из ' + maxSteps + ' ' + dots;
+
+                if (d.result) {
+                    restartBtn.style.display = 'inline-flex';
+                    stage.innerHTML = buildResult(key, len);
+                } else {
+                    restartBtn.style.display = 'none';
+                    var optsHtml = d.options.map(function (o) {
+                        return '<button class="cs-wizard-option" type="button" data-next="' + o.next + '">' +
+                            '<i class="fas ' + o.icon + '"></i> ' + o.text + '</button>';
+                    }).join('');
+                    stage.innerHTML = '<div class="cs-wizard-question"><i class="fas fa-circle-question"></i>' + d.question + '</div>' +
+                        '<div class="cs-wizard-options">' + optsHtml + '</div>';
+                }
+
+                // Обработчики
+                var optBtns = stage.querySelectorAll('.cs-wizard-option');
+                optBtns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        renderStep(btn.getAttribute('data-next'));
+                    });
+                });
+            }
+
+            function restart() {
+                history = [];
+                renderStep('start');
+            }
+
+            restartBtn.addEventListener('click', restart);
+            renderStep('start');
+        })();
+
+        // ===== ПОПАПЫ =====
+        (function () {
+            // Данные для попапов
+            var popupData = {
+                imm: {
+                    icon: 'fa-crown',
+                    title: 'Неприкосновенные лица',
+                    tag: 'ok',
+                    tagText: 'Не досматривать',
+                    body: '<p><strong>Неприкосновенные лица — их НЕЛЬЗЯ досматривать, обыскивать, задерживать (кроме 13 статей УК):</strong></p>' +
+                        '<ul>' +
+                        '<li><strong>Губернатор</strong> — пропуск незамедлительно, без досмотра</li>' +
+                        '<li><strong>Вице-Губернатор</strong> — пропуск незамедлительно, без досмотра</li>' +
+                        '<li><strong>Генеральный прокурор и его Заместитель</strong> — пропуск незамедлительно</li>' +
+                        '<li><strong>Министр ВБ и его Заместитель</strong> — пропуск незамедлительно</li>' +
+                        '<li><strong>Курирующий военный прокурор</strong> — пропуск незамедлительно</li>' +
+                        '<li><strong>Судьи, Мэры, Руководители госструктур</strong> — проверка удостоверения, БЕЗ досмотра</li>' +
+                        '</ul>' +
+                        '<div class="cs-popup-block"><strong>Кортеж</strong> с неприкосновенным лицом — <strong>НЕЛЬЗЯ</strong> останавливать/досматривать. Авто неприкосновенного — <strong>НЕЛЬЗЯ</strong> досматривать даже при ЧП/ВП.</div>'
+                },
+                uks33: {
+                    icon: 'fa-gavel',
+                    title: 'УКС п.3.3',
+                    tag: 'warn',
+                    tagText: 'Устав',
+                    body: '<p><strong>Устав Караульной Службы п.3.3:</strong> Проверка всех выезжающих транспортных средств — осмотр багажника и личный досмотр. От проверок освобождены: неприкосновенные лица (только удостоверение), MPB/Delta (2+ бойца), Комендант/Генерал-Майор+.</p>'
+                },
+                art1271: {
+                    icon: 'fa-gavel',
+                    title: '12.7.1 — Проникновение на особо охраняемый объект',
+                    tag: 'danger',
+                    tagText: 'УК',
+                    body: '<p><strong>12.7.1 — Проникновение на особо охраняемый объект [Штраф]</strong></p>' +
+                        '<p><strong>Объект:</strong> Форт Занкудо (NG), SASPA — вход/нахождение без пропуска.</p>' +
+                        '<p><strong>Когда:</strong> лицо находится на территории без разрешения, не оповестило по рации, на личном ТС без разрешения.</p>' +
+                        '<p><strong>Действие:</strong> задержать + вызвать MPB/Delta.</p>' +
+                        '<div class="cs-popup-block"><strong>Важно:</strong> если госслужащий проник без оснований — тоже 12.7.1. Если гражданский может доказать случайность (видео) — можно отпустить по согласованию со старшим/MPB.</div>'
+                },
+                art128: {
+                    icon: 'fa-gavel',
+                    title: '12.8 — Незаконное ношение оружия',
+                    tag: 'danger',
+                    tagText: 'УК',
+                    body: '<p><strong>12.8 — Незаконное ношение оружия [Тяжкое]</strong></p>' +
+                        '<p>Запрещённое оружие. <strong>НЕ применяется</strong> к госслужащим за штатное/служебное оружие и лицензию.</p>'
+                },
+                art176: {
+                    icon: 'fa-gavel',
+                    title: '17.6 — Неповиновение законному требованию',
+                    tag: 'danger',
+                    tagText: 'УК',
+                    body: '<p><strong>17.6 — Неповиновение законному требованию [Штраф]</strong></p>' +
+                        '<p>Отказ подчиниться законному требованию сотрудника SANG (пауза ≥5 сек после 2-го требования).</p>' +
+                        '<p><strong>Действие:</strong> стадии силы → задержание.</p>'
+                }
+            };
+
+            // Создаём контейнер попапа
+            var overlay = document.createElement('div');
+            overlay.className = 'cs-popup-overlay';
+            overlay.id = 'csPopupOverlay';
+            overlay.innerHTML = '<div class="cs-popup" id="csPopup"><div class="cs-popup-head"><h4 id="popupTitle"></h4><button class="cs-popup-close" id="popupClose" type="button"><i class="fas fa-xmark"></i></button></div><div class="cs-popup-body" id="popupBody"></div></div>';
+            document.body.appendChild(overlay);
+
+            var popupEl = document.getElementById('csPopup');
+            var popupTitle = document.getElementById('popupTitle');
+            var popupBody = document.getElementById('popupBody');
+            var popupClose = document.getElementById('popupClose');
+            var popupOverlay = document.getElementById('csPopupOverlay');
+
+            function openPopup(key) {
+                var d = popupData[key];
+                if (!d) return;
+                var tagHtml = d.tag ? '<span class="cs-popup-tag ' + d.tag + '"><i class="fas fa-gavel"></i> ' + d.tagText + '</span>' : '';
+                popupTitle.innerHTML = '<i class="fas ' + d.icon + '"></i> ' + d.title;
+                popupBody.innerHTML = tagHtml + d.body;
+                popupOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closePopup() {
+                popupOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            popupClose.addEventListener('click', closePopup);
+            popupOverlay.addEventListener('click', function (e) {
+                if (e.target === popupOverlay) closePopup();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closePopup();
+            });
+
+            // Обработчики кликов по чипам
+            document.addEventListener('click', function (e) {
+                var chip = e.target.closest('.cs-chip[data-popup]');
+                if (chip) {
+                    e.preventDefault();
+                    var key = chip.getAttribute('data-popup');
+                    openPopup(key);
+                }
+            });
+
+            // Делаем openPopup доступным глобально
+            window.openPopup = openPopup;
+        })();
+
+        // ===== АККОРДЕОНЫ =====
+        (function () {
+            document.addEventListener('click', function (e) {
+                var head = e.target.closest('[data-acc-head]');
+                if (!head) return;
+                var acc = head.closest('[data-acc]');
+                if (!acc) return;
+                acc.classList.toggle('open');
+            });
+        })();
+
+        // ===== ИНТЕРАКТИВНАЯ ИДЕНТИФИКАЦИЯ =====
+        (function () {
+            var idResult = document.getElementById('idResult');
+            var idStep2 = document.getElementById('idStep2');
+            var idState = {};
+
+            function resetId() {
+                idState = {};
+                idStep2.style.display = 'none';
+                idResult.className = 'cs-idflow-result';
+                idResult.style.display = 'none';
+            }
+
+            document.addEventListener('click', function (e) {
+                var btn = e.target.closest('.cs-idflow-option');
+                if (!btn) return;
+
+                var opt = btn.getAttribute('data-idopt');
+
+                // Шаг 1: uniform / civil
+                if (opt === 'uniform' || opt === 'civil') {
+                    idState.form = opt;
+                    idStep2.style.display = 'block';
+                    idResult.style.display = 'none';
+                    idResult.className = 'cs-idflow-result';
+                    return;
+                }
+
+                // Шаг 2: alone / withcivs
+                if (opt === 'alone' || opt === 'withcivs') {
+                    idState.civs = opt;
+
+                    // Вычисляем результат
+                    var html = '';
+                    var cls = '';
+
+                    if (idState.form === 'uniform') {
+                        // В форме — всегда можно требовать удостоверение
+                        cls = 'ok';
+                        html = '<strong>В форме — можно требовать удостоверение/жетон</strong>' +
+                            '<p>Требуй удостоверение с именем ' +
+                            '<code>[Структура | Отдел | Номер | Инициалы]</code> или ' +
+                            '<code>[Структура | Должность | Номер | Инициалы]</code>. ' +
+                            'Проверь нашивку/бейдж. Пропускай как госслужащего (БЕЗ досмотра).</p>';
+                    } else if (idState.form === 'civil' && idState.civs === 'alone') {
+                        // В гражданском, один/без гражданских
+                        cls = 'warn';
+                        html = '<strong>В гражданской одежде, без гражданских — можно попросить жетон</strong>' +
+                            '<p>Жетон секретного отдела — <strong>без имени</strong>: ' +
+                            '<code>[FIB | CID | No123]</code> — это законно, не раскрывает личность. ' +
+                            'Если показал жетон → пропускай как госслужащего (БЕЗ досмотра). ' +
+                            'Если <strong>отказался</strong> показать → рассматривай как гражданского → 17.6 при отказе.</p>';
+                    } else if (idState.form === 'civil' && idState.civs === 'withcivs') {
+                        // В гражданском, с гражданскими
+                        cls = 'danger';
+                        html = '<strong>ВНИМАНИЕ! Сотрудник под прикрытием, рядом гражданские</strong>' +
+                            '<p><strong>НЕ требуй удостоверение/жетон при гражданских</strong> — это раскроет личность под прикрытием (NRP cop). ' +
+                            'Если возможно — отведи в сторону / попроси отойти. Если не получается — пропусти как госслужащего без проверки документов.</p>' +
+                            '<p><strong>Красный флаг:</strong> если сотрудник сам показал жетон/нашивку при гражданских — это его нарушение (раскрытие личности), но не твоя вина. Не задерживай, пропусти, доложи старшему/MPB.</p>' +
+                            '<p>Если <strong>отказался</strong> отойти и показать → рассматривай как гражданского (но будь аккуратен, чтобы не раскрыть его).</p>';
+                    }
+
+                    idResult.className = 'cs-idflow-result show ' + cls;
+                    idResult.innerHTML = html;
+                    idResult.style.display = 'block';
+                }
+            });
+
+            // Сброс при клике на шаг 1 (если уже выбрано)
+            document.querySelectorAll('.cs-idflow-step:first-child .cs-idflow-option').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    // Если уже был выбран шаг 2, сбрасываем результат
+                    if (idState.form) {
+                        idResult.className = 'cs-idflow-result';
+                        idResult.style.display = 'none';
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
